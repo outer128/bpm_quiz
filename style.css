@@ -96,6 +96,11 @@ p {
     font-size: 1.2rem;
     position: relative;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0;
 }
 
 .play-btn.playing {
@@ -191,4 +196,20 @@ td {
 @keyframes pulse {
     0% { transform: scale(1); opacity: 0.8; }
     100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* X投稿用ボタン */
+.share-x-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 15px 30px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.share-x-btn:hover {
+    background-color: #1a1a1a;
+    border-color: #666666;
+    transform: translateY(-2px);
 }
