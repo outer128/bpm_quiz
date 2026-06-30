@@ -53,6 +53,11 @@ function switchScreen(screenName) {
 
 // 問題のセットアップ
 function setupQuestion() {
+    const quizScreen = document.getElementById('quiz-screen');
+    quizScreen.classList.remove('active');
+    void quizScreen.offsetWidth; // リフローを強制してアニメーションをリセット
+    quizScreen.classList.add('active');
+    
     // 60から240の間でランダムなBPMを生成
     currentBPM = Math.floor(Math.random() * (240 - 60 + 1)) + 60;
     questionNumberEl.textContent = `Question ${currentQuestion} / ${TOTAL_QUESTIONS}`;
@@ -110,6 +115,14 @@ function showResult() {
 
     const averageDiff = (totalDiff / TOTAL_QUESTIONS).toFixed(1);
     totalScoreEl.innerHTML = `平均ズレ: <strong style="color: var(--accent-color); font-size: 1.5rem;">${averageDiff} BPM</strong>`;
+
+    const shareXBtn = document.getElementById('share-x-btn');
+    shareXBtn.onclick = () => {
+        const siteUrl = window.location.href; // 現在のサイトURLを取得
+        const text = `私の絶対BPM感は平均ズレ ${averageDiff} BPMでした！\n以下のリンクからプレイ！\n${siteUrl}\n#絶対BPM感`;
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+        window.open(twitterUrl, '_blank');
+    };
 }
 
 // ゲームリセット
