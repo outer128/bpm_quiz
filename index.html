@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPM Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="start-screen" class="screen active">
+            <h1>BPM Guesser</h1>
+            <p>BPM（60〜240）を聴き分けて当てて下さい。<br>全10問です。</p>
+            <button id="start-btn" class="btn primary-btn">ゲームスタート</button>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <h2 id="question-number">Question 1 / 10</h2>
+            
+            <div class="player-container">
+                <button id="play-btn" class="btn play-btn">▶ 音を聴く</button>
+                <div class="animation-ring" id="ring"></div>
+            </div>
+
+            <div class="input-container">
+                <label for="bpm-input">予想BPMを入力:</label>
+                <input type="number" id="bpm-input" min="60" max="240" placeholder="例: 120">
+            </div>
+
+            <button id="submit-btn" class="btn primary-btn">決定 / 次へ</button>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <h2>RESULT</h2>
+            <p id="total-score"></p>
+            
+            <div class="table-container">
+                <table id="result-table">
+                    <thead>
+                        <tr>
+                            <th>Q</th>
+                            <th>正解BPM</th>
+                            <th>あなたの解答</th>
+                            <th>ズレ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+
+            <button id="retry-btn" class="btn primary-btn">もう一度挑戦する</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
